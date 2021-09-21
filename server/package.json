@@ -1,6 +1,7 @@
 {
   "name": "node-api-server",
   "version": "1.0.0",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node src/index.js"
