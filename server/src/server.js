@@ -3,7 +3,6 @@ import path from "path";
 
 /* External libraries */
 import express from "express";
-import bodyParser from "body-parser";
 import morgan from "morgan";
 import cors from "cors";
 
@@ -13,8 +12,8 @@ import createRouter from "./routes.js";
 function createServer() {
   const app = express();
 
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(morgan("combined"));
   app.use(cors());
   app.use(express.static(path.resolve("..", "client", "build")));
