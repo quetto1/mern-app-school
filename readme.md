@@ -17,7 +17,7 @@ This project is a template for building fullstack JavaScript applications runnin
 - **React** for the front-end, bootstrapped with "Create React App".
 - **Express.js** for the server
   - Serves the React app
-  - Provides the JSON API for the React app using http
+  - Provides the JSON API for the React app
 
 MongoDB is not used in this template but can be easily integrated into the server app.
 
