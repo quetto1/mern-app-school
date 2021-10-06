@@ -2,11 +2,13 @@
 
 ## Installation
 
-If you want to use this template for a new project, don't clone it via Git, since that will give you the whole Git history. Either [download a .zip file from GitHub](https://github.com/bewildergeist/mern-template/archive/refs/heads/master.zip) or run [this command](https://www.npmjs.com/package/degit) in a terminal:
+If you want to use this template for a new project, don't clone it via Git, since that will give you the whole Git history. Use one of these two options:
 
-```
-npx degit bewildergeist/mern-template new-project-directory
-```
+1. If you want the `mongoose` branch (you probably do), either [download a .zip file from GitHub](https://github.com/bewildergeist/mern-template/archive/refs/heads/mongoose.zip) or run [this command](https://www.npmjs.com/package/degit) in a terminal:  
+   `npx degit bewildergeist/mern-template#mongoose new-project-directory`.
+
+2. If you want the `master` branch, either [download a .zip file from GitHub](https://github.com/bewildergeist/mern-template/archive/refs/heads/master.zip) or run [this command](https://www.npmjs.com/package/degit) in a terminal:  
+   `npx degit bewildergeist/mern-template new-project-directory`.
 
 _Then_ you can initialize your own Git repository in the new folder via `git init`.
 
