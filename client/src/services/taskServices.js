@@ -1,4 +1,4 @@
-/* This filthy service uses axios to make HTTP requests to our express.js server   */
+/* This service uses axios to make HTTP requests to our express.js server   */
 import axios from "axios";
 const apiUrl = "http://localhost:8080/api/";
 
