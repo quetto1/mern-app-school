@@ -28,7 +28,6 @@ export async function getQuoteById(id) {
 
 // Add a new Quote to the database
 export function addQuotes(quote) {
-  console.log(this.proces.env);
   try {
     return axios.post(apiUrl, quote);
   } catch (e) {
