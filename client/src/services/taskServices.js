@@ -1,6 +1,6 @@
 /* This service uses axios to make HTTP requests to our express.js server   */
 import axios from "axios";
-const apiUrl = "http://localhost:8080/api/";
+const apiUrl = "/api/";
 
 // Gets a list of Quotes from the database
 export async function getQuotesFromApi() {
@@ -28,6 +28,7 @@ export async function getQuoteById(id) {
 
 // Add a new Quote to the database
 export function addQuotes(quote) {
+  console.log(this.proces.env);
   try {
     return axios.post(apiUrl, quote);
   } catch (e) {
