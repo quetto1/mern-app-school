@@ -59,6 +59,7 @@ function App() {
   // TODO: Make it look like https://material.io/components/cards
   return (
     <div>
+      SIEMA KURWA
       <h2>QUOTES</h2>
       <ul>{items}</ul>
       <form onSubmit={addNewQuote}>
