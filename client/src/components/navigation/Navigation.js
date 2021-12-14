@@ -1,5 +1,6 @@
 import "./Navigation.css";
 import home from "../../img/home.png"
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
 
@@ -14,7 +15,7 @@ const Navigation = () => {
             <div className="navigation-links-wrapper">
                 <div>Login</div>
                 <div>Register</div>
-                <div>Add Wish</div>
+                <div><Link to={'/add-wish-route'}>Add Wish</Link></div>
                 <div></div>
             </div>
         </div>
