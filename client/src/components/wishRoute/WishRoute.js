@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { getQuoteById, addComment, addLike } from "./services/taskServices.js";
+import { getQuoteById, addComment, addLike } from "../../services/taskServices.js";
 import { useEffect, useState } from "react";
 
-function QuoteRoute() {
+function WishRoute() {
   // Get the quote ID from the url
   const { id } = useParams();
 
@@ -95,4 +95,4 @@ function QuoteRoute() {
   );
 }
 
-export default QuoteRoute;
+export default WishRoute;

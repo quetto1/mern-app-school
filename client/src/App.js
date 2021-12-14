@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getQuotesFromApi, addQuotes } from "./services/taskServices.js";
 import { Link } from "react-router-dom";
+import "./FrontPage.css";
+
 
 function App() {
   const [quotes, setQuotes] = useState([]);
@@ -21,11 +23,21 @@ function App() {
   const items = [];
   for (const value of quotes) {
     items.push(
-      <li key={value._id}>
-        <Link to={value._id}>
-          Quote: {value.quote}, Source: {value.source}
-        </Link>
-      </li>
+      <div key={value._id}>
+        
+        {/* Wish component creation */}
+        {/* TODO: If theres gonna be enough time MOVE IT to A separate component */}
+      <div className="wish-wrapper">
+        <div className="wish-title"><Link to={value._id}>Wish: {value.quote}</Link></div>
+        <div className="wish-link">Link: "dummy link"</div>
+        <div className="wish-description">Description: 
+        Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas  {value.source}</div>
+        <div className="wish-footer">
+          <div className="wish-comment-count">Comments: 18</div>
+          <div className="wish-date">Date: 14-12-2021</div> 
+        </div>
+      </div>
+      </div>
     );
   }
 
@@ -58,16 +70,16 @@ function App() {
 
   // TODO: Make it look like https://material.io/components/cards
   return (
-    <div>
-      SIEMA KURWA
-      <h2>QUOTES</h2>
-      <ul>{items}</ul>
+    <div className="front-page-wrapper">
+      <h1>Wish List!</h1>
+      <h2>Description...</h2>
+      {/* Add Wish form */}
       <form onSubmit={addNewQuote}>
         <input
           value={enteredQuote}
           onChange={quoteChangerHandler}
           type="text"
-          placeholder="Quote"
+          placeholder="Wish"
           required
           max="500"
           min="1"
@@ -75,11 +87,14 @@ function App() {
         <input
           value={enteredSource}
           type="text"
-          placeholder="Source"
+          placeholder="Description"
           onChange={sourceChangerHandler}
         />
         <button type="submit">Add new Quote</button>
       </form>
+      {/*displayed wishes*/}
+      <ul>{items}</ul>
+      
     </div>
   );
 }
