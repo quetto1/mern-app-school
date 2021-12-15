@@ -19,7 +19,7 @@ function WishRoute() {
   async function getQuote() {
     // Fetch the quote from the API based on ID
     const newQuote = await getQuoteById(id);
-
+    console.log(newQuote);
     // Initialize the commentDisplayList which is used in the JSX
     const commentDisplayList = [];
     for (const value of newQuote.comments) {
@@ -65,7 +65,6 @@ function WishRoute() {
   };
 
   // TODO: Make this look nice
-  // Make it possible to add a comment
   return (
     <div>
       <h2>QUOTE</h2>

@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import { getQuotesFromApi} from "./services/taskServices.js";
+import { getQuotesFromApi, getQuoteById} from "./services/taskServices.js";
 import { Link } from "react-router-dom";
 import "./FrontPage.css";
-
 
 function App() {
   const [quotes, setQuotes] = useState([]);
 
-  
   // responsible for fetching the data on the page load
-  useEffect(() => {
-    console.log("test")
+  useEffect( () => {
     getQuotes();
   }, []);
 
   // Fetches the Quotes from the API
   async function getQuotes() {
     const quotes = await getQuotesFromApi();
+    console.log( quotes);
     setQuotes(quotes);
   }
 
@@ -31,25 +29,23 @@ function App() {
       <div className="wish-wrapper">
         <div className="wish-title"><Link to={value._id}>Wish: {value.quote}</Link></div>
         <div className="wish-link">Link: "dummy link"</div>
-        <div className="wish-description">Description: 
-        Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas Lorem asdasdasdas  {value.source}</div>
+        <div className="wish-description">Description: {value.source}</div>
         <div className="wish-footer">
-          <div className="wish-comment-count">Comments: 18</div>
-          <div className="wish-date">Date:14-12-2021</div> 
+          <div className="wish-comment-count">Comments: {value.comments.length}</div>
+          <div className="wish-date"> Creation date: {value.date}</div> 
         </div>
       </div>
       </div>
     );
+
   }
 
-
-  // TODO: Make it look like https://material.io/components/cards
   return (
     <div className="front-page-wrapper">
       <h1>Wish List!</h1>
       <h2>Description...</h2>    
       {/*displayed wishes */}
-      <ul>{items}</ul>
+      <ul>{items.reverse()}</ul>
     </div>
   );
 }
