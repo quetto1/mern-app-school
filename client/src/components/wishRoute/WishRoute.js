@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getQuoteById, addComment, addLike } from "../../services/taskServices.js";
 import { useEffect, useState } from "react";
+import "./WishRoute.css";
 
 function WishRoute() {
   // Get the quote ID from the url
@@ -10,6 +11,7 @@ function WishRoute() {
   const [commentList, setCommentList] = useState([]);
   const [comment, setComment] = useState("");
   const [author, setAuthor] = useState("");
+
 
   useEffect(() => {
     getQuote();
@@ -25,7 +27,7 @@ function WishRoute() {
     for (const value of newQuote.comments) {
       commentDisplayList.push(
         <li key={value._id}>
-          COMMENT: {value.text} BY: {value.author}{" "}
+          COMMENT: {value.text} BY: {value.author}{" "} Post Date: {new Date().getFullYear()}
         </li>
       );
     }
@@ -58,20 +60,31 @@ function WishRoute() {
     setComment("");
   };
 
-  const sendLikeQuoteReq = async () => {
-    await addLike(id);
-    // Refetches the Quote with the updated likes
-    getQuote();
-  };
+  // const sendLikeQuoteReq = async () => {
+  //   await addLike(id);
+  //   // Refetches the Quote with the updated likes
+  //   getQuote();
+  // };
 
   // TODO: Make this look nice
   return (
-    <div>
-      <h2>QUOTE</h2>
-      {quote.quote} <br />
-      {quote.source} <br />
-      Likes: {quote.likes}
-      <button onClick={sendLikeQuoteReq}>Like</button>
+    <div className="wish-route-wrapper">
+      <h2>Wish</h2>
+      <div className="wish-wrapper">
+        <div className="wish-title">Wish:{quote.quote}</div>
+        <div className="wish-link">Link: <a href={quote.link}>{quote.link}</a></div>
+        <div className="wish-description">Description: {quote.source}</div>
+        <div className="wish-footer">
+          <div className="wish-comment-count">Comments: {commentList.length}</div>
+          <div className="wish-date"> Creation date: {quote.date}</div> 
+        </div>
+      </div>
+     
+      {/* Lajki Area here do wyjebania*/}
+      {/* Likes: {quote.likes}
+      <button onClick={sendLikeQuoteReq}>Like</button> */}
+      <h2>Comments!</h2>
+
       <form onSubmit={postNewComment}>
         <input
           value={comment}
@@ -87,7 +100,7 @@ function WishRoute() {
           onChange={commentAuthorInputHandler}
           required
         />
-        <button type="submit">Add new Quote</button>
+        <button type="submit">Add new comment</button>
       </form>
       <ul>{commentList}</ul>
     </div>

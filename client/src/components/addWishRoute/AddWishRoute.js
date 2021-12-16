@@ -1,4 +1,4 @@
-import "./AddWishRoute";
+import "./AddWishRoute.css";
 import { useState } from "react";
 import { addQuotes } from "../../services/taskServices.js";
 
@@ -6,6 +6,7 @@ import { addQuotes } from "../../services/taskServices.js";
 const AddWishRoute = () => {
     const [enteredQuote, setEnteredQuote] = useState("");
     const [enteredSource, setEnteredSource] = useState("");
+    const [enteredLink, setEnteredLink] = useState("");
 
 
   const quoteChangerHandler = (event) => {
@@ -16,6 +17,10 @@ const AddWishRoute = () => {
     setEnteredSource(event.target.value);
   };
 
+  const linkChangerHandler = (event) => {
+    setEnteredLink(event.target.value);
+  };
+
     // Handels the submit from function, takes the addQuote function and then saves is in prepered schema
   const addNewQuote = async (e) => {
     e.preventDefault();
@@ -24,20 +29,25 @@ const AddWishRoute = () => {
     await addQuotes({
       quote: enteredQuote,
       source: enteredSource,
+      link: enteredLink,
       comments: [],
     });
 
     // Reset the input fields
     setEnteredSource("");
     setEnteredQuote("");
+    setEnteredLink("");
+
+    alert("A new wish has been submitted")
   };
 
 
 
   return (
-    <div>
+    <div className="add-wish-wrapper">
+      <h1>Add your wishes!</h1>
       {/* Add Wish form */}
-      <form onSubmit={addNewQuote}>
+      <form className="add-wish-form" onSubmit={addNewQuote}>
         <input
           value={enteredQuote}
           onChange={quoteChangerHandler}
@@ -51,9 +61,17 @@ const AddWishRoute = () => {
           value={enteredSource}
           type="text"
           placeholder="Description"
+          max="500"
           onChange={sourceChangerHandler}
         />
-        <button type="submit">Add new Quote</button>
+        <input
+          value={enteredLink}
+          max="400"
+          type="text"
+          placeholder="Link"
+          onChange={linkChangerHandler}
+        />
+        <button type="submit">Add new Wish!</button>
       </form>
     </div>
   );

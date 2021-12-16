@@ -13,9 +13,8 @@ const Navigation = () => {
             </div>
             {/* make register only visable for unlogged people and Login for Logged in users? Probably different solution for that later  */}
             <div className="navigation-links-wrapper">
-                <div>Login</div>
-                <div>Register</div>
                 <div><Link to={'/add-wish-route'}>Add Wish</Link></div>
+                <div><Link to={'/login-route'}>Login</Link></div>
                 <div></div>
             </div>
         </div>

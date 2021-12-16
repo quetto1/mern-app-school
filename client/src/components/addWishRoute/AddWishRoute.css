@@ -1,0 +1,54 @@
+.add-wish-wrapper{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 400px; */
+}
+
+.add-wish-form {
+    display: contents;
+}
+
+.add-wish-form input{
+    width: 70%;
+    height: 50px;
+    border: none;
+    border-bottom: solid 1px black;
+    color: black;
+    margin: 20px 0px;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.add-wish-form button{
+    box-sizing: border-box;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    border-radius: 10%;
+    transition: all 0.8s ease;
+
+}
+
+.add-wish-form button:hover {
+ background-color: white;
+ border: solid 1px black;
+ color: black;
+}
+
+@media screen and (max-width:520px) {
+    .add-wish-wrapper{
+        max-width: 320px;
+    }
+    .add-wish-form input{
+        width: 100%;
+    }
+}

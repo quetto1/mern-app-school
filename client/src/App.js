@@ -28,11 +28,11 @@ function App() {
         {/* TODO: If theres gonna be enough time MOVE IT to A separate component */}
       <div className="wish-wrapper">
         <div className="wish-title"><Link to={value._id}>Wish: {value.quote}</Link></div>
-        <div className="wish-link">Link: "dummy link"</div>
+        <div className="wish-link">Link: <a href={value.link}>{value.link}</a></div>
         <div className="wish-description">Description: {value.source}</div>
         <div className="wish-footer">
           <div className="wish-comment-count">Comments: {value.comments.length}</div>
-          <div className="wish-date"> Creation date: {value.date}</div> 
+          <div className="wish-date"> Creation date: {value.date.split('T')[0]} Time: {value.date.split('T')[1]}</div> 
         </div>
       </div>
       </div>

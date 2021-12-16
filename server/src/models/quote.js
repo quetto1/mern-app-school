@@ -16,10 +16,15 @@ const quoteSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    comments: [ {
+    link: {
+        type: String
+    },
+    comments: [{
         text: String, 
         author: String,
-    }]
+        date: Date,
+    },
+]
 });
 
 const Quote = mongoose.model("Quote", quoteSchema);
