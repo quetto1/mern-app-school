@@ -1,6 +1,6 @@
 /* This service uses axios to make HTTP requests to our express.js server   */
 import axios from "axios";
-const apiUrl = "http://localhost:8080/api/";
+const apiUrl = "/api/";
 //  for local tests "http://localhost:CLIENTPORT/api/" 8080, heroku /api/
 
 // Gets a list of Quotes from the database
