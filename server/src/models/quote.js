@@ -22,7 +22,10 @@ const quoteSchema = mongoose.Schema({
     comments: [{
         text: String, 
         author: String,
-        date: Date,
+        date: {
+            type: Date,
+            default: Date.now
+        },
     },
 ]
 });

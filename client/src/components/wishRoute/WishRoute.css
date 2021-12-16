@@ -12,3 +12,10 @@
 .wish-wrapper{
     margin-bottom: 20px;
 }
+
+.wish-title{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}

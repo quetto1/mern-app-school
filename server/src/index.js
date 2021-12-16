@@ -18,6 +18,5 @@ mongoose.connect("mongodb+srv://cluster01.dp5pp.mongodb.net/myFirstDatabase?retr
     console.log('db connected') 
 })
 
-
 // this attaches the server to the port 
 server.listen(port, () => console.log(`${appName} running on port ${port}!`));

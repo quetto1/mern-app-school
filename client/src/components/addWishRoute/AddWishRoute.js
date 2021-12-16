@@ -26,13 +26,13 @@ const AddWishRoute = () => {
     e.preventDefault();
 
     // Makes a POST request to the API
-    await addQuotes({
+    const res = await addQuotes({
       quote: enteredQuote,
       source: enteredSource,
       link: enteredLink,
       comments: [],
     });
-
+console.log(res);
     // Reset the input fields
     setEnteredSource("");
     setEnteredQuote("");

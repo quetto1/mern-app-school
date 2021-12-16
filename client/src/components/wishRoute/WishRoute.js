@@ -27,13 +27,15 @@ function WishRoute() {
     for (const value of newQuote.comments) {
       commentDisplayList.push(
         <li key={value._id}>
-          COMMENT: {value.text} BY: {value.author}{" "} Post Date: {new Date().getFullYear()}
+          COMMENT: {value.text} BY: {value.author}{" "}
+          <br></br>
+          <div>Creation date: {value.date.split('T')[0]} Time: {value.date.split('T')[1]}</div>
         </li>
       );
     }
 
     setQuote(newQuote);
-    setCommentList(commentDisplayList);
+    setCommentList(commentDisplayList.reverse());
   }
 
   // Listens to the input and updates the comment state

@@ -1,7 +1,6 @@
 import "./loginRoute.css"
 import { useState } from "react";
-
-
+import { authenticateUser, getCookie } from "../../services/taskServices.js";
 
 const LoginRoute = () => {
 
@@ -20,9 +19,24 @@ const LoginRoute = () => {
   };
 
   // store the data in the cookie and
-    function loginData() {
-        const loginInfo = document.cookie
-        document.cookie = "username=John Doe";
+    async function loginData(event) {
+      event.preventDefault()
+      try {
+        const res = await authenticateUser(userLogin, userPassword);
+        const resToken = res.data.token
+        document.cookie = `token=${resToken}`; 
+        console.log(getCookie());
+      }
+      catch (error){
+        if (error.response) {
+          const  errorMessage = error.response.data.message;
+          alert(errorMessage)
+        console.log(error.response.data.message);
+        }
+      
+      }
+        // const loginInfo = document.cookie
+        // document.cookie = "username=John Doe";
     }
 
      return(
