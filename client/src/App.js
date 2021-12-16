@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="front-page-wrapper">
       <h1>Wish List!</h1>
-      <h2>Description...</h2>
+      <h2>Front Page</h2>
       {/*displayed wishes */}
       <ul>{items.reverse()}</ul>
     </div>
