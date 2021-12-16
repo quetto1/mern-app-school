@@ -16,16 +16,6 @@ import createRouter from "./routes.js";
 function createServer() {
   const app = express();
 
-// /^(?!\/api).*/gim,
-
-// Open paths that do not need login.
-// You can use various formats to define the open paths.
-// const openPaths = [
-//   {path: "/api/authenticate"},
-// {path:/^(?!\/api).*/gim},
-//   { path: /api./gim, methods: ["GET"] }
-// ];
-
  // The secret value. Defaults to "the cake is a lie".
   const secret = process.env.SECRET || "the cake is a lie";
 

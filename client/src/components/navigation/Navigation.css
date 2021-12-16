@@ -27,6 +27,11 @@
     color: black;
     font-size: 22px;
 }
+
+.logo-wrapper a .logo-title:hover{
+    color: blueviolet;
+    transition: all ease-in 0.3s;
+}
 .navigation-links-wrapper{
     display: flex;
     flex-direction: row;
@@ -38,10 +43,21 @@
 
 .navigation-links-wrapper div{
     font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.navigation-links-wrapper div a{
+    text-decoration: none;
+    color: black;
+}
+.navigation-links-wrapper div a:hover{
+    cursor: pointer;
+    color: blueviolet;
+    transition: all ease-in 0.3s;
 }
 .navigation-links-wrapper div:hover{
     cursor: pointer;
-    color: red;
+    color: blueviolet;
     transition: all ease-in 0.3s;
 }
 
@@ -54,5 +70,8 @@
 @media screen and (max-width:520px) {
     .logo-wrapper{
     width: 35%; 
+    }
+    .navigation-links-wrapper div{
+        font-size: 14px;
     }
 }

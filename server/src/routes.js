@@ -6,8 +6,7 @@ import bcrypt from "bcryptjs";
 const router = express.Router();
 
 const users = [
-  // These are just some test users with passwords.
-  // The passwords are in clear text for testing purposes (don't do this in production).
+  // test users with passwords.
   { id: 0, username: "123", password: '123' },
   { id: 1, username: "tosk", password: 'password' },
   { id: 2, username: "mvkh", password: 'l33th0xor' },
@@ -23,7 +22,6 @@ users.forEach(async user => {
       if (err) reject(err); else resolve(hash);
     });
   });
-
   user.hash = hashedPassword; // Storing the hash+salt on the user object.
   delete user.password; // Let's remove the clear text password as well
   console.log(`Hash generated for ${user.username}:`, user); // Logging for debugging purposes

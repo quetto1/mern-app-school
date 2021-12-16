@@ -24,7 +24,12 @@ const AddWishRoute = () => {
     // Handels the submit from function, takes the addQuote function and then saves is in prepered schema
   const addNewQuote = async (e) => {
     e.preventDefault();
-
+    if (document.cookie === '') {
+      alert("You need to be logged in order to make a wish!")
+      }
+      else{
+        alert("A new wish has been submitted")
+      }
     // Makes a POST request to the API
     const res = await addQuotes({
       quote: enteredQuote,
@@ -37,11 +42,8 @@ console.log(res);
     setEnteredSource("");
     setEnteredQuote("");
     setEnteredLink("");
-
-    alert("A new wish has been submitted")
+   
   };
-
-
 
   return (
     <div className="add-wish-wrapper">

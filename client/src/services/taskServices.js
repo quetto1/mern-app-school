@@ -3,8 +3,10 @@ import axios from "axios";
 const apiUrl = "/api/";
 //  for local tests "http://localhost:CLIENTPORT/api/" 8080, heroku /api/
 
+// NOTE!!!!!!!!!!!!  in order to avoid confusion I decided to remain with naming "wish" realted stuff to the "Quote"
+
 // Gets a list of Quotes from the database
- const getQuotesFromApi = async () => {
+const getQuotesFromApi = async () => {
   try {
     const res = await axios.get(apiUrl);
     const quotes = res.data;
@@ -13,7 +15,7 @@ const apiUrl = "/api/";
     console.error(e);
     return [];
   }
-}
+};
 
 // Get a specific Quote based on an id
 const getQuoteById = async (id) => {
@@ -25,25 +27,25 @@ const getQuoteById = async (id) => {
     console.error(e);
     return [];
   }
-}
+};
 
 // Add a new Quote to the database
 const addQuotes = (quote) => {
   try {
-    const token = getCookie().token 
+    const token = getCookie().token;
     console.log(token);
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
-  }; 
-  const bodyParameters = {
-    quote: quote
- }; 
-  console.log(token);
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    const bodyParameters = {
+      quote: quote,
+    };
+    console.log(token);
     return axios.post(apiUrl, bodyParameters, config);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 // Add a comment to a Quote
 const addComment = (quoteId, comment) => {
@@ -52,33 +54,36 @@ const addComment = (quoteId, comment) => {
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 const getCookie = () => {
- return document.cookie.split('; ').reduce((prev, current) => {
-    const [name, ...value] = current.split('=');
-    prev[name] = value.join('=');
+  return document.cookie.split("; ").reduce((prev, current) => {
+    const [name, ...value] = current.split("=");
+    prev[name] = value.join("=");
     return prev;
   }, {});
-}
+};
 
 const authenticateUser = (username, password) => {
   try {
-    return axios.post(apiUrl + "authenticate", { username: username, password:password });
+    return axios.post(apiUrl + "authenticate", {
+      username: username,
+      password: password,
+    });
   } catch (e) {
     console.log(e.response);
   }
-}
+};
 
-// CHANGE THIS LATER TO DO:
+//  LATER TO DO:
 // Add a like to a Quote
-const addLike = (quoteId) => {
-  try {
-    return axios.post(apiUrl + "/addLike", { quoteId: quoteId });
-  } catch (e) {
-    console.error(e);
-  }
-}
+// const addLike = (quoteId) => {
+//   try {
+//     return axios.post(apiUrl + "/addLike", { quoteId: quoteId });
+//   } catch (e) {
+//     console.error(e);
+//   }
+// }
 
 // // Delete an existing Quote
 // const deleteQoute = (quoteId) => {
@@ -89,4 +94,11 @@ const addLike = (quoteId) => {
 //   }
 // }
 
-export {getQuotesFromApi, getQuoteById, addQuotes, addComment, getCookie, authenticateUser, addLike} 
+export {
+  getQuotesFromApi,
+  getQuoteById,
+  addQuotes,
+  addComment,
+  getCookie,
+  authenticateUser,
+};

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Router handles switching out and displaying different views in the APP
 import Navigation from "./components/navigation/Navigation.js";
 import AddWishRoute from "./components/addWishRoute/AddWishRoute.js";
-import LoginRoute from "./components/loginRoute/loginRoute.js"
+import LoginRoute from "./components/loginRoute/loginRoute.js";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,13 +25,10 @@ ReactDOM.render(
         <Route path="/login-route">
           <LoginRoute></LoginRoute>
         </Route>
-{/* ThisRoute has to go to the bottom */}
+        {/* ThisRoute has to go to the bottom */}
         <Route path="/:id">
           <WishRoute></WishRoute>
         </Route>
-
-        
-
       </Switch>
     </Router>
   </React.StrictMode>,
